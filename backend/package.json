@@ -1,0 +1,11 @@
+{
+  "name": "smartpark-backend",
+  "version": "1.0.0",
+  "description": "SmartPark Spring Boot Backend CLI Helper",
+  "scripts": {
+    "start": "mvn spring-boot:run",
+    "dev": "mvn spring-boot:run",
+    "compile": "mvn compile",
+    "build": "mvn clean package -DskipTests"
+  }
+}

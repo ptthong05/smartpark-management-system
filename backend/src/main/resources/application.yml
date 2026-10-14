@@ -1,0 +1,14 @@
+server:
+  port: 8088
+
+spring:
+  application:
+    name: smartpark-backend
+  profiles:
+    active: dev
+
+# JWT Configuration
+app:
+  jwt:
+    secret: 9a6747f6f64b4f166593b17653d15645a7b155ca4f89902ac4e92a467e59dbd4
+    expiration-ms: 86400000 # 24 giờ
