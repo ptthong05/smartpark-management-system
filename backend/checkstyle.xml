@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<!DOCTYPE module PUBLIC
+          "-//Checkstyle//DTD Checkstyle Configuration 1.3//EN"
+          "https://checkstyle.org/dtds/configuration_1_3.dtd">
+
+<module name="Checker">
+    <property name="charset" value="UTF-8"/>
+    <property name="severity" value="error"/>
+    <property name="fileExtensions" value="java"/>
+
+    <!-- Giới hạn độ dài dòng tối đa 120 ký tự -->
+    <module name="LineLength">
+        <property name="max" value="120"/>
+        <property name="ignorePattern" value="^package.*|^import.*|a href|href|http://|https://|ftp://"/>
+    </module>
+
+    <module name="TreeWalker">
+        <!-- 1. QUY CHUẨN ĐẶT TÊN LỚP & INTERFACE: PascalCase (bắt đầu viết hoa) -->
+        <module name="TypeName">
+            <property name="format" value="^[A-Z][a-zA-Z0-9]*$"/>
+            <message key="name.invalidPattern"
+                     value="Tên Lớp/Interface ''{0}'' phải tuân theo chuẩn PascalCase (viết hoa chữ cái đầu)!"/>
+        </module>
+
+        <!-- 2. QUY CHUẨN ĐẶT TÊN HÀM (METHODS): camelCase (bắt đầu viết thường) -->
+        <module name="MethodName">
+            <property name="format" value="^[a-z][a-zA-Z0-9]*$"/>
+            <message key="name.invalidPattern"
+                     value="Tên Hàm/Method ''{0}'' phải tuân theo chuẩn camelCase (bắt đầu bằng chữ thường)!"/>
+        </module>
+
+        <!-- 3. QUY CHUẨN ĐẶT TÊN THUỘC TÍNH (FIELDS/MEMBERS): camelCase -->
+        <module name="MemberName">
+            <property name="format" value="^[a-z][a-zA-Z0-9]*$"/>
+            <message key="name.invalidPattern"
+                     value="Tên biến/thuộc tính ''{0}'' phải tuân theo chuẩn camelCase!"/>
+        </module>
+
+        <!-- 4. QUY CHUẨN ĐẶT TÊN BIẾN CỤC BỘ: camelCase, cấm viết tắt 1 chữ cái (tối thiểu 2 ký tự, trừ vòng for i,j,k) -->
+        <module name="LocalVariableName">
+            <property name="format" value="^([a-z][a-zA-Z0-9]{1,}|[i-k])$"/>
+            <message key="name.invalidPattern"
+                     value="Tên biến cục bộ ''{0}'' phải theo camelCase và không được viết tắt 1 chữ cái (tối thiểu 2 ký tự)!"/>
+        </module>
+
+        <!-- 5. QUY CHUẨN ĐẶT TÊN THAM SỐ (PARAMETERS): camelCase, cấm viết tắt 1 chữ cái (tối thiểu 2 ký tự) -->
+        <module name="ParameterName">
+            <property name="format" value="^[a-z][a-zA-Z0-9]{1,}$"/>
+            <message key="name.invalidPattern"
+                     value="Tên tham số ''{0}'' phải theo chuẩn camelCase và không được viết tắt 1 chữ cái!"/>
+        </module>
+
+        <!-- 6. QUY CHUẨN ĐẶT TÊN HẰNG SỐ: UPPER_SNAKE_CASE (viết hoa cách nhau dấu gạch dưới) -->
+        <module name="ConstantName">
+            <property name="format" value="^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$"/>
+            <message key="name.invalidPattern"
+                     value="Tên hằng số ''{0}'' phải viết hoa toàn bộ và cách nhau bằng dấu gạch dưới UPPER_SNAKE_CASE!"/>
+        </module>
+
+        <!-- 7. QUY CHUẨN PACKAGE: Chữ thường hoàn toàn -->
+        <module name="PackageName">
+            <property name="format" value="^[a-z]+(\.[a-z][a-z0-9]*)*$"/>
+            <message key="name.invalidPattern"
+                     value="Tên package ''{0}'' phải viết thường hoàn toàn!"/>
+        </module>
+
+        <!-- 8. PHONG CÁCH CODE: Dấu ngoặc nhọn mở cùng dòng (1TBS) -->
+        <module name="LeftCurly"/>
+        <module name="RightCurly"/>
+        <module name="NeedBraces"/>
+    </module>
+</module>
